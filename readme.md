@@ -68,6 +68,9 @@ With Distiller installed, one can replicate our results on quantization as well 
 
 ## Call for Collaboration
 We are very excited to share our results on the benefits of using pruned neural networks. While the results so far in the published literature pointed to the potential gains, these have largely not been realized on HW. We are confident that our HW solutions will enable researchers and product managers to exploit sparsity and develop low power, low cost solutions that do not sacrifice on accuracy and bring cloud quality AI to the edge. We welcome you to develop your sparse net applications on our HW and will extend any support possible. Our test chip is expected to be in Q2 of 2020, but we already have FPGA system to help developers. 
+
+We also urge researchers to share their pruned models, especially in speech recognition applications where bandwidth requirements are high thereby making them more difficult to bring to the edge.
+
 ## Acknowledgements
 1. We owe a debt of gratitude to the group maintaining Distiller repo. All our pruned models have been obtained by using their package.
 2. The pytorch community
