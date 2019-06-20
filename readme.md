@@ -44,12 +44,12 @@ Currently, we have results for ResNet50 trained on ImageNet dataset. We will be 
 Various research studies show that language models as well as models used in speech recognition can be pruned by as much as 90% without sacrificing accuracy. Moreover, sparse models have been found to outperform dense models with the same number of parameters. See [1](https://arxiv.org/pdf/1704.05119.pdf) and [2](https://arxiv.org/pdf/1710.01878.pdf) for some very interesting results. Reporting results for these models on our HW is also on our roadmap.
 
 ### Image Classification
-Name of Network     | Number of GMACS (Compute Reduction) | Number of Parameters (Parameter Reduction) | Top1/Top5 Accuracy (fp32) | Top1/Top5 Accuracy (INT8) | Achieved Compute Gains in HW (fp32) | Model State Dict
---------------------|-----------------|----------------------|--------------------|-----------------|-----------|----
-ResNet50            | 4.089 (1.00x)   | 25.5M (1.00x)        | 76.130/92.862      | 75.702/92.680   | 1.00      | Get from torchvision models
-ResNet50_Pruned_70  | 1.846 (2.21x)   | 7.48M (3.41x)        | 75.944/92.960      | 75.504/92.662   | 2.00      | link
-ResNet50_Pruned_83  | 1.143 (3.58x)   | 4.24M (6.01x)        | 75.766/92.920      | 75.194/92.634   | 2.73      | link 
-ResNet50_Pruned_85  | 0.714 (5.73x)   | 3.93M (6.48x)        | 75.516/92.718      | 74.874/92.376   | 3.86      | link
+Name of Network     | Number of GMACS (Compute Reduction) | Number of Parameters (Parameter Reduction) | Top1/Top5 Accuracy (fp32) | Top1/Top5 Accuracy (INT8) | Achieved Compute Gains in HW (fp32) 
+--------------------|-----------------|----------------------|--------------------|-----------------|-----------
+ResNet50            | 4.089 (1.00x)   | 25.5M (1.00x)        | 76.130/92.862      | 75.702/92.680   | 1.00      
+ResNet50_Pruned_70  | 1.846 (2.21x)   | 7.48M (3.41x)        | 75.944/92.960      | 75.504/92.662   | 2.00      
+ResNet50_Pruned_83  | 1.143 (3.58x)   | 4.24M (6.01x)        | 75.766/92.920      | 75.194/92.634   | 2.73      
+ResNet50_Pruned_85  | 0.714 (5.73x)   | 3.93M (6.48x)        | 75.516/92.718      | 74.874/92.376   | 3.86      
 
 ## Reproducing Our Results
 In order to enable the research community as well as product developers to replciate our results, we are providing links to download the training checkpoints as well as the mode state dictionaries for our pruned models. We also provide the pruning schedule yaml files used to generate the pruned models (on Distiller). The yaml file contains other important metadata such as the accuracy performance, the command lines to run training,evaluation and quantization, the sparsity profile, the best epoch number and the ideal number of MACS needed for the pruned network.
@@ -64,7 +64,7 @@ ResNet50_Pruned_85  | [ckpt](https://degirum-model-checkpoints.s3.amazonaws.com/
 The performance of our pruned models can be replicated using this [jupyter notebook](EvalPrunedModelsStateDict.ipynb) which uses state dictionary and this [jupyter notebook](EvalPrunedModelsStateDict.ipynb) which uses the checkpoint. The notebooks are self-contained and only require pytorch to be installed (tested with Pytorch 1.1.0). 
 
 ### Using Distiller
-With Distiller installed, one can replciate our results on quantization as well as train models from scratch to obtain the pruned models with desired sparsity profile. 
+With Distiller installed, one can replicate our results on quantization as well as train models from scratch to obtain the pruned models with desired sparsity profile. 
 
 ## Call for Collaboration
 We are very excited to share our results on the benefits of using pruned neural networks. While the results so far in the published literature pointed to the potential gains, these have largely not been realized on HW. We are confident that our HW solutions will enable researchers and product managers to exploit sparsity and develop low power, low cost solutions that do not sacrifice on accuracy and bring cloud quality AI to the edge. We welcome you to develop your sparse net applications on our HW and will extend any support possible. Our test chip is expected to be in Q2 of 2020, but we already have FPGA system to help developers. 
