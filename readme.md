@@ -22,7 +22,7 @@ A key feature of our architecture is the near optimal computation speed up achie
 
 The figure below shows that the computation speedup in our architecture for various parameter reduction values for a 3x3 convolutional layer with 256 filters and 256 channels. In general, for a given sparsity, computation speed up increases as we have more channels. 
 
-![Sparse results](spartse.png)
+![Sparse results](sparse_performance.png)
 
 ## Relation Between Parameter Reduction and Compute Reduction
 For a single layer, the relationship between parameter reduction and computation speedup is straightforward. However, for a network composed of multiple layers, filter coefficients in different layers have different reuse. Pruning a coefficient in initial layer saves more computation than pruning a coefficient in later layers. Similarly, for the same percentage of pruning, later layers reduce the absolute number of parameters much more than earlier layers.
